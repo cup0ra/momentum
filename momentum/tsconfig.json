@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "module": "es2015",
+      "target": "ES2017",
+      "rootDir": "./",
+      "outDir": "",
+      "sourceMap": false,
+      "strict": true
+    }
+  }
