@@ -63,6 +63,9 @@ class Momentum {
         };
         this.backgroundImage = (value) => {
             let path;
+            if (value === 0) {
+                value = 24;
+            }
             switch (true) {
                 case (value < 6 || value === 24):
                     path = 'night';
@@ -88,7 +91,6 @@ class Momentum {
             const url = `https://favqs.com/api/qotd`;
             const res = await fetch(url);
             const data = await res.json();
-            console.log(data);
             return data;
         };
         this.getWeather = async (city) => {
@@ -96,7 +98,6 @@ class Momentum {
                 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=2065fc103d83010d4dbc57f1a1378f5a`;
                 const res = await fetch(url);
                 const data = await res.json();
-                console.log(data);
                 return data;
             }
             catch (e) {
@@ -154,7 +155,7 @@ class Momentum {
         this.getTimeOfDay = () => {
             this.hour = new Date().getHours();
             switch (true) {
-                case (this.hour < 6 || this.hour === 24):
+                case (this.hour < 6 || this.hour === 0):
                     this.timeOfDay = 'Good night,';
                     break;
                 case (this.hour < 12):
@@ -220,7 +221,6 @@ class Momentum {
             this.city = localStorage.getItem('city') !== null ? localStorage.getItem('city') : await this.getGeolocation();
             this.quote = await this.getQuote();
             this.weather = await this.getWeather(this.city);
-            console.log(this.city, this.weather);
             this.render();
         };
         this.body = document.querySelector('body');
