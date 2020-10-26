@@ -43,7 +43,7 @@ class Momentum{
     createGreetingAndFocus = (nameBlock: string, contentBlock:string, name: string) => {
         const blockGreeting = document.createElement('div');
         blockGreeting.classList.add(nameBlock);
-        blockGreeting.innerText = contentBlock;
+        blockGreeting.innerHTML = `<span>${contentBlock}</span>`;
 
         const blockName: HTMLSpanElement | null = document.createElement('span');
         blockName.classList.add(name)
@@ -193,7 +193,7 @@ class Momentum{
                 this.hour = time.getHours();
                 const minutes = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
                 const seconds = time.getSeconds() < 10 ? '0' + time.getSeconds() : time.getSeconds();
-                this.time = `<span>${this.days[time.getUTCDay()]} ${time.getUTCDate()} ${this.months[time.getMonth()]}  </span> <span>${this.hour} : ${minutes} : ${seconds}</span>`; 
+                this.time = `<span>${this.hour} : ${minutes} : ${seconds}</span> <span>${this.days[time.getUTCDay()]} ${time.getUTCDate()} ${this.months[time.getMonth()]}</span>`; 
                  document.querySelector('time')?.innerHTML = this.time; 
                 
                 setTimeout(() => {this.getTime()},1000)
