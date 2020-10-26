@@ -297,11 +297,11 @@ body:before {
     font-size: 1rem;
   }
   .weather {
-    max-width: 150px;
+    max-width: 220px;
     min-height: 200px;
     position: absolute;
     top: 0;
-    right: 10px;
+    right: 0px;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (1fr)[4];
@@ -338,6 +338,7 @@ body:before {
     -ms-grid-column-span: 2;
     grid-area: 2 / 1 / 4 / 3;
     width: 80px;
+    margin-left: 30px;
   }
   .weather__temp {
     font-size: 1.3rem;
@@ -349,7 +350,7 @@ body:before {
     grid-area: 2 / 3 / 3 / 5;
   }
   .weather__humidity {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     -ms-grid-row: 3;
     -ms-grid-row-span: 1;
     -ms-grid-column: 3;
